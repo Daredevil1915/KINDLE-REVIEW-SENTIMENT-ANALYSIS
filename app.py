@@ -115,10 +115,12 @@ col1,col2=st.columns(2)
 with col1:
     if st.button("📖 Positive Example", use_container_width=True):
         st.session_state.review_text="Great product! Highly recommend."
+        st.rerun()
 
 with col2:
     if st.button("📕 Negative Example", use_container_width=True):
         st.session_state.review_text="Poor quality. Not satisfied."
+        st.rerun()
 
 st.divider()
 
