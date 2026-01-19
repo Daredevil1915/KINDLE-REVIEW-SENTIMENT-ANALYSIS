@@ -48,7 +48,7 @@ def build_sentence_vector(words,model,vector_size):
 
 data=pd.read_csv("all_kindle_review .csv")
 data=data[['reviewText','rating']]
-data['rating']=data['rating'].apply(lambda x:0 if x<3 else 1)
+data['rating']=data['rating'].apply(lambda x:0 if x<=2 else 1)
 data['tokens']=data['reviewText'].apply(preprocess_text)
 
 X_train,X_test,y_train,y_test=train_test_split(
