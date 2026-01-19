@@ -112,29 +112,26 @@ with st.expander("ℹ️ How to use this tool", expanded=False):
 st.markdown("### 💭 Try an example:")
 col1,col2=st.columns(2)
 
+if 'review_text' not in st.session_state:
+    st.session_state.review_text=""
+
 with col1:
     if st.button("📖 Positive Example", use_container_width=True):
         st.session_state.review_text="Great product! Highly recommend."
-        st.rerun()
 
 with col2:
     if st.button("📕 Negative Example", use_container_width=True):
         st.session_state.review_text="Poor quality. Not satisfied."
-        st.rerun()
 
 st.divider()
 
 st.markdown("### ✍️ Enter Your Review")
 
-if 'review_text' not in st.session_state:
-    st.session_state.review_text=""
-
 user_input=st.text_area(
     "",
     value=st.session_state.review_text,
     height=150,
-    placeholder="Example: The story was engaging and well written. I couldn't put it down!",
-    key="review_input"
+    placeholder="Example: The story was engaging and well written. I couldn't put it down!"
 )
 
 char_count=len(user_input)
